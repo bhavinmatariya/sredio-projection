@@ -1,0 +1,138 @@
+<div class="other-expenses-wrapper shadow-sm p-4 rounded-3 mb-3">
+    <div class="mb-2">
+        <h4 class="fw-bold text-dark-emphasis mb-0 d-flex align-items-center justify-content-start gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                <path
+                    d="M20 22H4C3.44772 22 3 21.5523 3 21V3C3 2.44772 3.44772 2 4 2H20C20.5523 2 21 2.44772 21 3V21C21 21.5523 20.5523 22 20 22ZM19 20V4H5V20H19ZM8 7H16V9H8V7ZM8 11H16V13H8V11ZM8 15H16V17H8V15Z">
+                </path>
+            </svg>
+            Other expenses (3)
+        </h4>
+    </div>
+
+    <div class="px-2 rounded-3">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item border-0 mb-3">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button fw-bold text-dark-emphasis d-flex align-items-center justify-content-start gap-2 p-2"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            fill="currentColor">
+                            <path
+                                d="M21 19H23V21H1V19H3V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V19H19V11H17V9H20C20.5523 9 21 9.44772 21 10V19ZM5 5V19H13V5H5ZM7 11H11V13H7V11ZM7 7H11V9H7V7Z">
+                            </path>
+                        </svg>
+                        Vendor Invoices(2)
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body p-2">
+                        <div class="table-responsive mb-3">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-dark-emphasis">Invoice Submit</th>
+                                        <th class="text-dark-emphasis">Invoice Number</th>
+                                        <th class="text-dark-emphasis">Invoice Amount ($)</th>
+                                        <th class="text-dark-emphasis">Vendor Name</th>
+                                        <th class="text-dark-emphasis">Name of Provider</th>
+                                        <th class="text-dark-emphasis">Project</th>
+                                        <th class="text-dark-emphasis">Description</th>
+                                        <th class="text-dark-emphasis">Is SR&ED</th>
+                                        <th class="text-dark-emphasis">Province</th>
+                                        <th class="text-dark-emphasis">Status</th>
+                                        <th class="text-dark-emphasis">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (invoice of invoices; track $index) {
+                                    <tr>
+                                        <td>{{ invoice.submitDate }}</td>
+                                        <td>{{ invoice.number }}</td>
+                                        <td>{{ invoice.amount }}</td>
+                                        <td>{{ invoice.vendor }}</td>
+                                        <td>{{ invoice.provider }}</td>
+                                        <td>{{ invoice.project }}</td>
+                                        <td>{{ invoice.description }}</td>
+                                        <td>{{ invoice.isSRED }}</td>
+                                        <td>{{ invoice.province }}</td>
+                                        <td>{{ invoice.status }}</td>
+                                        <td>
+                                            <button class="btn text-success p-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                                    height="18" fill="currentColor">
+                                                    <path
+                                                        d="M9.24264 18.9967H21V20.9967H3V16.754L12.8995 6.85453L17.1421 11.0972L9.24264 18.9967ZM14.3137 5.44032L16.435 3.319C16.8256 2.92848 17.4587 2.92848 17.8492 3.319L20.6777 6.14743C21.0682 6.53795 21.0682 7.17112 20.6777 7.56164L18.5563 9.68296L14.3137 5.44032Z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                            <button class="btn text-danger p-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18"
+                                                    height="18" fill="currentColor">
+                                                    <path
+                                                        d="M7 6V3C7 2.44772 7.44772 2 8 2H16C16.5523 2 17 2.44772 17 3V6H22V8H20V21C20 21.5523 19.5523 22 19 22H5C4.44772 22 4 21.5523 4 21V8H2V6H7ZM9 4V6H15V4H9Z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    }
+
+                                    <tr>
+                                        <td colspan="2" class="fw-bold">Total</td>
+                                        <td class="fw-bold">{{ totalAmount }}</td>
+                                        <td colspan="8"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div>
+                            <button class="btn btn-primary d-flex align-items-center justify-content-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M4 3H20C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z">
+                                    </path>
+                                </svg>
+                                Add Vendor invoice
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item border-0">
+                <h2 class="accordion-header">
+                    <button
+                        class="accordion-button fw-bold text-dark-emphasis d-flex align-items-center justify-content-start gap-2 p-2"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                            fill="currentColor">
+                            <path
+                                d="M21 19H23V21H1V19H3V4C3 3.44772 3.44772 3 4 3H14C14.5523 3 15 3.44772 15 4V19H19V11H17V9H20C20.5523 9 21 9.44772 21 10V19ZM5 5V19H13V5H5ZM7 11H11V13H7V11ZM7 7H11V9H7V7Z">
+                            </path>
+                        </svg>
+                        Government Assistance
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body p-2">
+                        <div>
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <label for="amount" class="flex-shrink-0">Total amount of government assistace</label>
+                                <input type="number" name="govtAssis" id="amount" class="form-control">
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <button class="btn btn-outline-danger">Cancel</button>
+                                <button class="btn btn-primary">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

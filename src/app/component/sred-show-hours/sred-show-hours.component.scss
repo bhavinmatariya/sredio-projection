@@ -1,0 +1,43 @@
+:host ::ng-deep {
+    .mat-mdc-tab-header {
+        --mdc-secondary-navigation-tab-container-height: auto !important;
+        --mat-tab-header-label-text-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #edf5ff;
+        border-radius: 8px;
+    }
+
+    .mat-mdc-tab-labels {
+
+        .mat-mdc-tab {
+            overflow: hidden;
+
+            .mdc-tab-indicator__content {
+                display: none;
+
+                &--underline {
+                    border: none !important;
+                }
+            }
+
+            &.mdc-tab {
+                flex-shrink: 0;
+                border: 1px solid #f2f2f2;
+
+                .mdc-tab__text-label {
+                    font-weight: 600;
+                    font-size: 16px;
+                    letter-spacing: 0.2px;
+                }
+
+                &--active {
+                    background-color: #0d6efd !important;
+                    border-color: #0d6efd !important;
+
+                    .mdc-tab__text-label {
+                        color: white !important;
+                    }
+                }
+            }
+        }
+    }
+}

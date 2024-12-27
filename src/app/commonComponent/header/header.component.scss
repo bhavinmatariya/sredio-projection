@@ -1,0 +1,29 @@
+header {
+    background-color: #edf5ff !important;
+    z-index: 3;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.profile-btn {
+    height: 32px;
+    width: 32px;
+}
+
+:host ::ng-deep {
+    .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+        background-color: transparent !important;
+    }
+
+    .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label,
+    .mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label--float-above {
+        color: #0d6efd;
+    }
+
+    .mat-datepicker-toggle-active {
+        color: #0d6efd;
+    }
+
+    .mat-mdc-icon-button .mat-mdc-button-persistent-ripple::before {
+        background-color: rgba($color: #000000, $alpha: 0.4);
+    }
+}
